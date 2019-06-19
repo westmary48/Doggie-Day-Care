@@ -2,9 +2,15 @@ import React from 'react';
 
 import './Dog.scss';
 
+import dogShape from '../../helpers/propz/dogShape';
+
 import dogs from '../../App/dogs';
 
 class Dog extends React.Component {
+  static propTypes = {
+    dog: dogShape.dogShape,
+  }
+
   render() {
     const { dog } = this.props;
     return (
