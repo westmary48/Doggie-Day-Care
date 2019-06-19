@@ -1,4 +1,5 @@
 import React from 'react';
+import Dog from '../Dog/Dog';
 
 import './DogPen.scss';
 
@@ -6,10 +7,10 @@ class DogPen extends React.Component {
   render() {
     const { dogs } = this.props;
     const makeDogs = dogs.map(dog => (
-      <h2>{dog.name}</h2>
+      <Dog key = {dog.id} dog = {dog} />
     ));
     return (
-      <div>
+      <div className = "DogPen d-flex flex-wrap">
         { makeDogs }
       </div>
     );
