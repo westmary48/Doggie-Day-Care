@@ -1,24 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
 
 import dogs from './dogs';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.scss';
 
-function App() {
-  state = {
-    dogs: [],
-  }
+class App extends React.Component {
+   state = {
+     dogs: [],
+   }
 
-  componentDidMount() {
-    this.setState({ dogs });
-  }
-  return (
-    <div className="App">
+   componentDidMount() {
+     this.setState({ dogs });
+   }
+
+   render() {
+     return (
+    <div className = "App">
       <div>Doggie Daycare</div>
     </div>
-  );
+     );
+   }
 }
-
 export default App;
