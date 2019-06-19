@@ -1,16 +1,18 @@
 import React from 'react';
 
+import Employee from '../Employee/Employee';
+
 import './StaffRoom.scss';
 
 class StaffRoom extends React.Component {
   render() {
     const { employees } = this.props;
     const makeEmployees = employees.map(employee => (
-      <h2>{employee.name}</h2>
+      <Employee key = {employee.id} employee = {employee} />
     ));
 
     return (
-      <div>
+      <div className = "StaffRoom d-flex flex-wrap">
         { makeEmployees }
       </div>
     );
