@@ -22,7 +22,7 @@ class MyNavbar extends React.Component {
       <div className="MyNavbar">
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
           <span className="navbar-brand" href="#">
-            Fish Store
+            Doggie Day Care
           </span>
           <button
             className="navbar-toggler"
