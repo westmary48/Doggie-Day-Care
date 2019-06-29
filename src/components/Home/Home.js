@@ -2,6 +2,7 @@ import React from 'react';
 
 import DogPen from '../DogPen /DogPen';
 import StaffRoom from '../StaffRoom/StaffRoom';
+import WalksForm from '../WalksForm/WalksForm';
 
 import './Home.scss';
 
@@ -15,6 +16,9 @@ class Home extends React.Component {
       </div>
       <div className = "col">
       <StaffRoom />
+      </div>
+      <div className = "col">
+      <WalksForm />
       </div>
     </div>
     </div>
