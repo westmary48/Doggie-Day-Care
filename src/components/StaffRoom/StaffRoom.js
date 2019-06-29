@@ -23,6 +23,7 @@ class StaffRoom extends React.Component {
 
     return (
       <div className = "StaffRoom d-flex flex-wrap">
+        <h1>StaffRoom</h1>
         { employeeComponents }
       </div>
     );
