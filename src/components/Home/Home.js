@@ -5,6 +5,7 @@ import StaffRoom from '../StaffRoom/StaffRoom';
 import WalksForm from '../WalksForm/WalksForm';
 
 import './Home.scss';
+import Walks from '../Walks/Walks';
 
 class Home extends React.Component {
   render() {
@@ -17,10 +18,15 @@ class Home extends React.Component {
       <div className = "col">
       <StaffRoom />
       </div>
+      </div>
+      <div className = "row">
       <div className = "col">
       <WalksForm />
       </div>
-    </div>
+      <div className = "col">
+      <Walks />
+      </div>
+      </div>
     </div>
     );
   }
