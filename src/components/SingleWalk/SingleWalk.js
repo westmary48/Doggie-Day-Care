@@ -8,7 +8,14 @@ import './SingleWalk.scss';
 
 class SingleWalk extends React.Component {
   static propTypes = {
-    walks: PropTypes.arrayOf(walkShape.walkShape),
+    walk: walkShape.walkShape,
+    deleteWalk: PropTypes.func.isRequired,
+  }
+
+  deleteWalkEvent = (e) => {
+    const { walk, deleteWalk } = this.props;
+    e.preventDefault();
+    deleteWalk(walk.id);
   }
 
   render() {
@@ -20,6 +27,7 @@ class SingleWalk extends React.Component {
         <h5 className = "card-text">{walk.dogId}</h5>
         <p className = "card-text">{walk.employeeId}</p>
         <h5 className = "card-text">{walk.date}</h5>
+        <button className = "btn btn-danger" onClick= {this.deleteWalkEvent}>Delete</button>
       </div>
       </div>
     </div>

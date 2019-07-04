@@ -42,6 +42,12 @@ class Home extends React.Component {
     this.readWalks();
   }
 
+  deleteWalk = (walkId) => {
+    walksData.deleteSingleWalk(walkId)
+      .then(() => this.readWalks())
+      .catch(err => console.errr('did not delete walk', err));
+  }
+
   render() {
     const { dogs, employees, walks } = this.state;
     return (
@@ -56,7 +62,7 @@ class Home extends React.Component {
       </div>
       <div className = "row">
       <div className = "col">
-      <Walks walks = {walks}/>
+      <Walks walks = {walks} deleteWalk = {this.deleteWalk}/>
       </div>
       </div>
     </div>
