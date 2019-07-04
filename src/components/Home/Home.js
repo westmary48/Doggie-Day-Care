@@ -6,6 +6,7 @@ import Walks from '../Walks/Walks';
 
 import dogsData from '../../helpers/data/dogsData';
 import employeesData from '../../helpers/data/employeesData';
+import walksData from '../../helpers/data/walksData';
 
 import './Home.scss';
 
@@ -30,16 +31,19 @@ class Home extends React.Component {
   }
 
   readWalks = () => {
-
+    walksData.getWalks()
+      .then(walks => this.setState({ walks }))
+      .catch(err => console.error('could not get walks', err));
   }
 
   componentDidMount() {
     this.readDogs();
     this.readEmployees();
+    this.readWalks();
   }
 
   render() {
-    const { dogs, employees } = this.state;
+    const { dogs, employees, walks } = this.state;
     return (
     <div className="Home">
       <div className = "row">
@@ -52,7 +56,7 @@ class Home extends React.Component {
       </div>
       <div className = "row">
       <div className = "col">
-      <Walks />
+      <Walks walks = {walks}/>
       </div>
       </div>
     </div>
