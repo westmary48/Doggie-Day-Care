@@ -11,11 +11,12 @@ import './Walks.scss';
 class Walks extends React.Component {
   static propTypes = {
     walks: PropTypes.arrayOf(walkShape.walkShape),
+    deleteWalk: PropTypes.func.isRequired,
   }
 
   render() {
     const walkComponents = this.props.walks.map(walk => (
-      <SingleWalk key = {walk.id} walk = {walk}/>
+      <SingleWalk key = {walk.id} walk = {walk} deleteWalk = {this.props.deleteWalk}/>
     ));
     return (
       <div className = "Walks d-flex flex-wrap">
