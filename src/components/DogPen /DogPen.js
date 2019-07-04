@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Dog from '../../Dog/Dog';
+import Dog from '../Dog/Dog';
 
 import dogShape from '../../helpers/propz/dogShape';
 
