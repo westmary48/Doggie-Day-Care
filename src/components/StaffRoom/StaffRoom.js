@@ -1,23 +1,19 @@
 import React from 'react';
 
+import PropTypes from 'prop-types';
+
 import Employee from '../Employee/Employee';
 
-import employeesData from '../../helpers/data/employeesData';
+import employeeShape from '../../helpers/propz/employeeShape';
 import './StaffRoom.scss';
 
 class StaffRoom extends React.Component {
-  state = {
-    employees: [],
-  }
-
-  componentDidMount() {
-    employeesData.getEmployees()
-      .then(employees => this.setState({ employees }))
-      .catch(err => console.error('could not get employees', err));
+  static propTypes = {
+    employees: PropTypes.arrayOf(employeeShape.employeeShape),
   }
 
   render() {
-    const employeeComponents = this.state.employees.map(employee => (
+    const employeeComponents = this.props.employees.map(employee => (
       <Employee key = {employee.id} employee = {employee}/>
     ));
 
