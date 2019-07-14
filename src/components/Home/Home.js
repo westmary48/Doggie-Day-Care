@@ -2,6 +2,7 @@ import React from 'react';
 
 import DogPen from '../DogPen /DogPen';
 import StaffRoom from '../StaffRoom/StaffRoom';
+import WalkForm from '../WalkForm/WalkForm';
 import Walks from '../Walks/Walks';
 
 import dogsData from '../../helpers/data/dogsData';
@@ -45,7 +46,22 @@ class Home extends React.Component {
   deleteWalk = (walkId) => {
     walksData.deleteSingleWalk(walkId)
       .then(() => this.readWalks())
-      .catch(err => console.errr('did not delete walk', err));
+      .catch(err => console.error('did not delete walk', err));
+  }
+
+  addWalk = (walkObject) => {
+    const dog = this.state.dogs.find(x => x.id === walkObject.dogId);
+    const employee = this.state.employees.find(x => x.id === walkObject.employeeId);
+    const createWalk = {
+      dogId: dog.id,
+      employeeId: employee.id,
+      date: walkObject.date,
+    };
+    walksData.addWalk(createWalk)
+      .then(() => {
+        walksData.getWalks()
+          .then(allWalks => this.setState({ walks: allWalks }));
+      }).catch(error => console.error('did not add walk', error));
   }
 
   render() {
@@ -64,8 +80,17 @@ class Home extends React.Component {
       <div className = "col">
       <Walks walks = {walks} deleteWalk = {this.deleteWalk}/>
       </div>
+      <div className = "col">
+      <WalkForm
+        walks={walks}
+        dogs={dogs}
+        employees={employees}
+        addWalk={this.addWalk}
+        deleteWalk={this.deleteWalk}
+        />
       </div>
-    </div>
+      </div>
+      </div>
     );
   }
 }
